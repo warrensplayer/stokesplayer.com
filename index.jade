@@ -15,7 +15,7 @@ block content
 		h1 Who is Stokes Player?
 		p.lead See below to find out!
 		p
-			a.btn.btn-large.btn-info(href="http://www.linkedin.com/in/stokesplayer", target="_blank")
+			a#linkedin-link.btn.btn-large.btn-info(href="http://www.linkedin.com/in/stokesplayer", target="_blank")
 				i.icon-linkedin-sign
 				| Profile
 	.row
@@ -198,7 +198,7 @@ block content
 						i.icon-cog
 						| CodeKit
 				.text-center
-					a.btn.btn-info(href="https://github.com/warrensplayer/stokesplayer.com", target="_blank") 
+					a#github-link.btn.btn-info(href="https://github.com/warrensplayer/stokesplayer.com", target="_blank") 
 						i.icon-github
 						|  See the code
 
@@ -206,4 +206,16 @@ block script
 	script
 		$(function(){
 			$("#photos").carousel();
+		});
+
+		$("#linkedin-link").on("click", function(){
+			if (ga) {
+ 				ga('send', 'event', 'button', 'click', 'linkedin');
+ 			}
+		});
+
+		$("#github-link").on("click", function(){
+			if (ga) {
+				ga('send', 'event', 'button', 'click', 'github');
+			}
 		});
